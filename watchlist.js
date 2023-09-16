@@ -1,41 +1,21 @@
-import {movies,windowScroll} from "/movie.js"
-import movieInfo from "/movieInfo.js"
+import { watchlistArray, renderMovies, showSnackBar } from "./common.js";
 
-const movieContainer = document.getElementById("movie-container")
+window.removeFromWatchList = async (movieId) => {
+  watchlistArray.splice(watchlistArray.indexOf(movieId), 1);
+  localStorage.setItem("watchlistImdbArray", JSON.stringify(watchlistArray));
+  showSnackBar(`Removed ${movieId} from watchlist`);
+  refreshPage(document.getElementById("watchlist-container"));
+};
 
-let watchlistArray=[]
-let watchlistHtml =''
-let watchListImdb = JSON.parse(localStorage.getItem('watchlistImdbArray'))
+async function refreshPage(domElem) {
+  if (watchlistArray.length === 0) {
+    domElem.innerHTML = `<h3>Your watchlist is looking a little empty</h3>
+        <a href="index.html" class="fa fa-plus-circle watchlist" id="addMovies"> Let's add some Movies</a>`;
+    return;
+  }
+  const movies = await renderMovies(watchlistArray);
 
-function WatchList(imdbList){
-if (imdbList){
-    movieContainer.classList.add("hidden")
-imdbList.forEach(movie =>{
-            movieInfo(movie).then(data =>{ 
-                    watchlistArray.push(data) 
-                    localStorage.setItem('watchlistArray', JSON.stringify(watchlistArray))
-                    watchlistHtml+=movies(data)
-                    movieContainer.innerHTML = watchlistHtml 
-                })
-        })
-    }
+  domElem.innerHTML = movies.join("");
 }
-movieContainer.onclick=(e) => {
-    if(e.target.dataset.addwatchlist && watchListImdb.includes(e.target.dataset.addwatchlist)){
-         let updateWatchListImdb = watchListImdb.push(e.target.dataset.addwatchlist)
-         if(updateWatchListImdb){
-              WatchList(updateWatchListImdb)
-              }else{
-                   movieContainer.classList.remove("hidden")
-              }
-         }
-   if(e.target.id === 'scroll-btn'){
-       document.body.scrollTop=0;
-       document.documentElement.scrollTop=0;
-   }
- }
- 
- 
-WatchList(watchListImdb)
-                
-windowScroll()
+
+refreshPage(document.getElementById("watchlist-container"));

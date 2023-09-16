@@ -1,41 +1,63 @@
 <html>
-   <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-    <link rel="stylesheet" href="index.css">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="index.css" />
     <!-- Font awesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <!-- viewport setting -->
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-   
-    <body>
-        <div class="container" id="container">
-            <header>
-                <h1>Find your Film</h1>
-                <a class ="watchlist" id="watchlist" href="watchlist.html">My Watchlist</a>
-            </header>
-            <form id="input-holder">
-                <label id="movie-label">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input id="movie-input" type="search" name="movie-input" placeholder="Search..."/>
-                </label>
-                <div>
-                    <button class="fa fa-close" id="close" type="reset"></button>
-                    <button id ="search-btn" type="submit">Search</button>
-                </div>
-            </form>
-            <main class="movie-container" id="movie-container">
-                    <i class="fa-solid fa-film fa-3xl film-icon"></i>
-                    <p>Start exploring</p>
-            </main>
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <header>
+        <h1>Find your Film</h1>
+        <a class="watchlist" id="watchlist" href="watchlist.html"
+          >My Watchlist</a
+        >
+      </header>
+      <form id="input-holder">
+        <label id="movie-label">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input
+            id="movie-input"
+            type="search"
+            name="movie-input"
+            placeholder="Search..."
+          />
+        </label>
+        <div>
+          <button class="fa fa-close" id="close" type="reset"></button>
+          <button id="search-btn" type="submit">Search</button>
         </div>
-            <i class="fa-solid fa-circle-up" id="scroll-btn" title="Go to top"></i>
-        <script src="index.js" type="module"></script>
-    </body>
+      </form>
+      <main class="movie-container" id="movie-container">
+        <i class="fa-solid fa-film fa-3xl film-icon"></i>
+        <p>Start exploring</p>
+      </main>
+    </div>
+    <i class="fa-solid fa-circle-up" id="scroll-btn" title="Go to top"></i>
+    <script src="main.js" type="module"></script>
+  </body>
 </html>
